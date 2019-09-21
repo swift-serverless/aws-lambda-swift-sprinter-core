@@ -331,7 +331,7 @@ One of the goals of this core library is to allow the developers to use their NI
 
 # Contributions
 
-Contributions are more than welcome! Follow [this guide](/https://github.com/swift-sprinter/aws-lambda-swift-sprinter-core/blob/master/CONTRIBUTING.md) to contribute.
+Contributions are more than welcome! Follow [this guide](https://github.com/swift-sprinter/aws-lambda-swift-sprinter-core/blob/master/CONTRIBUTING.md) to contribute.
 
 # Acknowledgements
 

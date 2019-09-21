@@ -32,7 +32,7 @@ import PackageDescription
 let package = Package(
     name: "HelloWorld",
     dependencies: [
-       .package(url: "https://github.com/swift-sprinter/aws-lambda-swift-sprinter-core", from: "1.0.0")
+       .package(url: "https://github.com/swift-sprinter/aws-lambda-swift-sprinter-core", from: "1.0.0-alpha.1")
     ],
     targets: [
         .target(
@@ -348,3 +348,5 @@ This project has been inspired by the amazing work of the following people:
 - Toni Sutter : https://github.com/tonisuter/aws-lambda-swift
 
 - Sébastien Stormacq :  https://github.com/sebsto/swift-custom-runtime-lambda
+
+A special thanks to [BJSS](https://www.bjss.com) to sustain me in delivering this project.

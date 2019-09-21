@@ -1,6 +1,6 @@
 # aws-lambda-swift-sprinter-core
 
-[![Swift 5](https://img.shields.io/badge/Swift-5.0-blue.svg)](https://swift.org/download/) ![](https://img.shields.io/badge/version-1.0.0.alpha.1-red) ![](https://img.shields.io/badge/coverage-~99%-brightgreeen)
+[![Swift 5](https://img.shields.io/badge/Swift-5.0-blue.svg)](https://swift.org/download/) ![](https://img.shields.io/badge/version-1.0.0.alpha.1-red) ![](https://img.shields.io/badge/coverage-~99%25-brightgreeen)
 
 **LambdaSwiftSprinter** is a Swift framework allowing the development of AWS Lambdas based on the  [AWS Lambda Custom Runtime](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-custom.html) for Swift.
 
@@ -25,7 +25,7 @@ Use swift package manager to start your project:
 swift package init --type executable
 ```
 
-Edit the file Package.swift by adding the dependecy LambdaSwiftSprinter to the target:
+Edit the file Package.swift by adding the dependency LambdaSwiftSprinter to the target:
 ```swift
 import PackageDescription
 
@@ -82,7 +82,7 @@ Update the lambda with your code.
 
 - The **Event** object is the JSON received by the Lambda invocation
 - The **Context** object contains the information to interact with AWS Lambda.
-- The **Response** object is the reponse of your AWS Lamda invocation.
+- The **Response** object is the response of your AWS Lamda invocation.
 - The **Handler** contains the implementation of the code executed by the AWS Lambda. (SyncCodableLambda<Event, Response> in the example)
 
 To run the lambda in the custom runtime environment with **SwiftSprinter** it's required to:
@@ -91,7 +91,7 @@ To run the lambda in the custom runtime environment with **SwiftSprinter** it's 
 - **Init** the sprinter:  ``` let sprinter = try SprinterCURL()```
 - **Register** the lambda handler: ```sprinter.register(handler: "helloWorld", lambda: lambda)```
 - **Run** the sprinter: ```try sprinter.run()```
-- **Log**: It's a good pratice to enclose the code in a *do/catch*, this will ensure to log all the errors in the AWS Lambda error output.
+- **Log**: It's a good practice to enclose the code in a *do/catch*, this will ensure to log all the errors in the AWS Lambda error output.
 
 Refer to the [lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html) for more info on AWS Lambda.
 
@@ -101,14 +101,14 @@ The examples are maintained here [https://github.com/swift-sprinter/aws-lambda-s
 
 - [HelloWorld](https://github.com/swift-sprinter/aws-lambda-swift-sprinter/blob/master/Examples/HelloWorld): A basic Lambda Swift example
 - [HTTPSRequest](https://github.com/swift-sprinter/aws-lambda-swift-sprinter/blob/master/Examples/HTTPSRequest): A basic example showing how to perform an HTTPS request from the Swift Lambda using the [LambdaSwiftSprinterNioPlugin](https://github.com/swift-sprinter/aws-lambda-swift-sprinter-nio-plugin)
-- [S3Test](https://github.com/swift-sprinter/aws-lambda-swift-sprinter/blob/master/Examples/S3Test): A basic examle showing how to access an S3 bucket from the Swift Lambda using [https://github.com/swift-aws/aws-sdk-swift](https://github.com/swift-aws/aws-sdk-swift/tree/nio2.0).
+- [S3Test](https://github.com/swift-sprinter/aws-lambda-swift-sprinter/blob/master/Examples/S3Test): A basic example showing how to access an S3 bucket from the Swift Lambda using [https://github.com/swift-aws/aws-sdk-swift](https://github.com/swift-aws/aws-sdk-swift/tree/nio2.0).
 
 # Design goals
 
 The LambdaSwiftSprinter framework has been designed to implement the following goals:
 - Codable Event and Response
 - Dictionary Event and Response
-- Syncrhonous and Asynchronous functions
+- Synchronous and Asynchronous functions
 - Plugin architecture
 - No third party dependencies
 - Safe Context
@@ -248,7 +248,7 @@ The default implementation **LambdaApiCURL** is based on the Foundation class UR
 
 ## No third-party dependencies
 
-One of the main issues on server-side swift is resolving the software dependencies. The fragmentation of the existing server-side library and the use of different versions could add complexity to the core library.  **By design this core framework does not depend on other third-party frameworks.** In particular, this choice allows using differents Logging and Network framework and a custom implementation of the LambdaAPI.
+One of the main issues on server-side swift is resolving the software dependencies. The fragmentation of the existing server-side library and the use of different versions could add complexity to the core library.  **By design, this core framework does not depend on other third-party frameworks.** In particular, this choice allows using differents Logging and Network framework and a custom implementation of the LambdaAPI.
 
 ## Safe Context
 The **Context** object, passed inside the lambda, contains all the **environment** variables defined by the Lambda implementation: https://docs.aws.amazon.com/lambda/latest/dg/lambda-environment-variables.html
@@ -287,7 +287,7 @@ public enum SprinterError: Error {
 }
 ```
 
-Endoding/Decoding Errors:
+Encoding/Decoding and errors:
 
 If the code uses the Codable Event and Response all the encoding and decoding errors will be thrown.
 

@@ -12,6 +12,9 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 import Foundation
+#if swift(>=5.1) && os(Linux)
+    import FoundationNetworking
+#endif
 
 public struct LambdaRuntimeAPIUrlBuilder {
     let awsLambdaRuntimeAPI: String

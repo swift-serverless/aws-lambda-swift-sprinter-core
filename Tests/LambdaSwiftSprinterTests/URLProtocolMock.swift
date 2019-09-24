@@ -13,6 +13,9 @@
 //    limitations under the License.
 
 import Foundation
+#if swift(>=5.1) && os(Linux)
+    import FoundationNetworking
+#endif
 
 // References:
 //  --: https://www.hackingwithswift.com/articles/153/how-to-test-ios-networking-code-the-easy-way

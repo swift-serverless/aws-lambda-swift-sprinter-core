@@ -13,6 +13,9 @@
 //    limitations under the License.
 
 import Foundation
+#if swift(>=5.1) && os(Linux)
+    import FoundationNetworking
+#endif
 
 public typealias LambdaResult = Result<Data, Error>
 public typealias DictionaryResult = Result<[String: Any], Error>

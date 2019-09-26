@@ -12,7 +12,7 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 import Foundation
-#if swift(>=5.1) && os(Linux)
+#if canImport(FoundationNetworking)
     import FoundationNetworking
 #endif
 

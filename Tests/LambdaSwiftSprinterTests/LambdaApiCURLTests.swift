@@ -14,7 +14,7 @@
 
 @testable import LambdaSwiftSprinter
 import Foundation
-#if swift(>=5.1) && os(Linux)
+#if canImport(FoundationNetworking)
     import FoundationNetworking
 #endif
 import XCTest

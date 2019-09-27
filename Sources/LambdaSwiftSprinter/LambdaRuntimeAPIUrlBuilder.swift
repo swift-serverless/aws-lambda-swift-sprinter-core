@@ -12,6 +12,9 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 import Foundation
+#if canImport(FoundationNetworking)
+    import FoundationNetworking
+#endif
 
 public struct LambdaRuntimeAPIUrlBuilder {
     let awsLambdaRuntimeAPI: String

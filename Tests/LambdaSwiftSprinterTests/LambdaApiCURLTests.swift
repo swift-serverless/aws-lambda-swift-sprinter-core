@@ -13,6 +13,10 @@
 //    limitations under the License.
 
 @testable import LambdaSwiftSprinter
+import Foundation
+#if canImport(FoundationNetworking)
+    import FoundationNetworking
+#endif
 import XCTest
 
 enum ErrorMock: Error {

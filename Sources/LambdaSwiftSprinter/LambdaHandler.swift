@@ -13,6 +13,9 @@
 //    limitations under the License.
 
 import Foundation
+#if canImport(FoundationNetworking)
+    import FoundationNetworking
+#endif
 
 public typealias LambdaResult = Result<Data, Error>
 public typealias DictionaryResult = Result<[String: Any], Error>

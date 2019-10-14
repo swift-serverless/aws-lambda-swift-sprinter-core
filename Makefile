@@ -12,4 +12,4 @@ swift_test_with_coverage:
 			--volume "$(shell pwd)/:/src" \
 			--workdir "/src/" \
 			$(SWIFT_DOCKER_IMAGE) \
-			swift test  --enable-code-coverage
+			/bin/bash -c "swift test --enable-code-coverage && llvm-cov export .build/x86_64-unknown-linux/debug/LambdaSwiftSprinter.build/*.o -instr-profile=.build/x86_64-unknown-linux/debug/codecov/default.profdata -format=lcov > .build/x86_64-unknown-linux/debug/codecov/lcov"

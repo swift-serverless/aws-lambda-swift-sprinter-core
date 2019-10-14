@@ -19,4 +19,4 @@ install:
 
 script:
   - docker image ls
-  - make swift_test
+  - make swift_test_with_coverage

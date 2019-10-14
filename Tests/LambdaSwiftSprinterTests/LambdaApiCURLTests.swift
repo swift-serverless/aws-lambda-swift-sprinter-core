@@ -93,14 +93,6 @@ class LambdaApiCURLTests: XCTestCase {
         let url = urlBuilder.nextInvocationURL()
         // Throws
 
-        // when (Data?,URLREsponse?,Error?) = (nil,nil,nil)
-        URLProtocolMock.testURLs = [url: (nil, nil, nil)]
-        XCTAssertThrowsError(try api?.getNextInvocation())
-
-        // when (Data?,URLREsponse?,Error?) = (validData,nil,nil)
-        URLProtocolMock.testURLs = [url: (validData, nil, nil)]
-        XCTAssertThrowsError(try api?.getNextInvocation())
-
         // when (Data?,URLREsponse?,Error?) = (validData,urlResponse,nil)
         URLProtocolMock.testURLs = [url: (validData, urlResponse, nil)]
         XCTAssertThrowsError(try api?.getNextInvocation())
@@ -113,8 +105,8 @@ class LambdaApiCURLTests: XCTestCase {
         URLProtocolMock.testURLs = [url: (validData, badHttpResponse, nil)]
         XCTAssertThrowsError(try api?.getNextInvocation())
 
-        // when (Data?,URLREsponse?,Error?) = (nil,nil,networkError)
-        URLProtocolMock.testURLs = [url: (nil, nil, networkError)]
+        // when (Data?,URLREsponse?,Error?) = (nil,urlResponse,networkError)
+        URLProtocolMock.testURLs = [url: (nil, urlResponse, networkError)]
         XCTAssertThrowsError(try api?.getNextInvocation())
 
         // when (Data?,URLREsponse?,Error?) = (validData, httpResponse, networkError)
@@ -134,14 +126,6 @@ class LambdaApiCURLTests: XCTestCase {
         let url = urlBuilder.invocationResponseURL(requestId: requestID)
         // Throws
 
-        // when (Data?,URLREsponse?,Error?) = (nil,nil,nil)
-        URLProtocolMock.testURLs = [url: (nil, nil, nil)]
-        XCTAssertThrowsError(try api?.postInvocationResponse(for: requestID, httpBody: validData))
-
-        // when (Data?,URLREsponse?,Error?) = (validData,nil,nil)
-        URLProtocolMock.testURLs = [url: (validData, nil, nil)]
-        XCTAssertThrowsError(try api?.postInvocationResponse(for: requestID, httpBody: validData))
-
         // when (Data?,URLREsponse?,Error?) = (validData,urlResponse,nil)
         URLProtocolMock.testURLs = [url: (validData, urlResponse, nil)]
         XCTAssertThrowsError(try api?.postInvocationResponse(for: requestID, httpBody: validData))
@@ -154,8 +138,8 @@ class LambdaApiCURLTests: XCTestCase {
         URLProtocolMock.testURLs = [url: (validData, badHttpResponse, nil)]
         XCTAssertThrowsError(try api?.postInvocationResponse(for: requestID, httpBody: validData))
 
-        // when (Data?,URLREsponse?,Error?) = (nil,nil,networkError)
-        URLProtocolMock.testURLs = [url: (nil, nil, networkError)]
+        // when (Data?,URLREsponse?,Error?) = (nil,urlResponse,networkError)
+        URLProtocolMock.testURLs = [url: (nil, urlResponse, networkError)]
         XCTAssertThrowsError(try api?.postInvocationResponse(for: requestID, httpBody: validData))
 
         // when (Data?,URLREsponse?,Error?) = (validData, httpResponse, networkError)
@@ -173,14 +157,6 @@ class LambdaApiCURLTests: XCTestCase {
         let error = ErrorMock.someError
         // Throws
 
-        // when (Data?,URLREsponse?,Error?) = (nil,nil,nil)
-        URLProtocolMock.testURLs = [url: (nil, nil, nil)]
-        XCTAssertThrowsError(try api?.postInvocationError(for: requestID, error: error))
-
-        // when (Data?,URLREsponse?,Error?) = (validData,nil,nil)
-        URLProtocolMock.testURLs = [url: (validData, nil, nil)]
-        XCTAssertThrowsError(try api?.postInvocationError(for: requestID, error: error))
-
         // when (Data?,URLREsponse?,Error?) = (validData,urlResponse,nil)
         URLProtocolMock.testURLs = [url: (validData, urlResponse, nil)]
         XCTAssertThrowsError(try api?.postInvocationError(for: requestID, error: error))
@@ -193,8 +169,8 @@ class LambdaApiCURLTests: XCTestCase {
         URLProtocolMock.testURLs = [url: (validData, badHttpResponse, nil)]
         XCTAssertThrowsError(try api?.postInvocationError(for: requestID, error: error))
 
-        // when (Data?,URLREsponse?,Error?) = (nil,nil,networkError)
-        URLProtocolMock.testURLs = [url: (nil, nil, networkError)]
+        // when (Data?,URLREsponse?,Error?) = (nil,urlResponse,networkError)
+        URLProtocolMock.testURLs = [url: (nil, urlResponse, networkError)]
         XCTAssertThrowsError(try api?.postInvocationError(for: requestID, error: error))
 
         // when (Data?,URLREsponse?,Error?) = (validData, httpResponse, networkError)
@@ -212,14 +188,6 @@ class LambdaApiCURLTests: XCTestCase {
         let error = ErrorMock.someError
         // Throws
 
-        // when (Data?,URLREsponse?,Error?) = (nil,nil,nil)
-        URLProtocolMock.testURLs = [url: (nil, nil, nil)]
-        XCTAssertThrowsError(try api?.postInitializationError(error: error))
-
-        // when (Data?,URLREsponse?,Error?) = (validData,nil,nil)
-        URLProtocolMock.testURLs = [url: (validData, nil, nil)]
-        XCTAssertThrowsError(try api?.postInitializationError(error: error))
-
         // when (Data?,URLREsponse?,Error?) = (validData,urlResponse,nil)
         URLProtocolMock.testURLs = [url: (validData, urlResponse, nil)]
         XCTAssertThrowsError(try api?.postInitializationError(error: error))
@@ -232,8 +200,8 @@ class LambdaApiCURLTests: XCTestCase {
         URLProtocolMock.testURLs = [url: (validData, badHttpResponse, nil)]
         XCTAssertThrowsError(try api?.postInitializationError(error: error))
 
-        // when (Data?,URLREsponse?,Error?) = (nil,nil,networkError)
-        URLProtocolMock.testURLs = [url: (nil, nil, networkError)]
+        // when (Data?,URLREsponse?,Error?) = (nil,urlResponse,networkError)
+        URLProtocolMock.testURLs = [url: (nil, urlResponse, networkError)]
         XCTAssertThrowsError(try api?.postInitializationError(error: error))
 
         // when (Data?,URLREsponse?,Error?) = (validData, httpResponse, networkError)
@@ -245,18 +213,13 @@ class LambdaApiCURLTests: XCTestCase {
         URLProtocolMock.testURLs = [url: (validData, httpResponse, nil)]
         XCTAssertNoThrow(try api?.postInitializationError(error: error))
     }
+    
+    static var allTests = [
+        ("testInit", testInit),
+        ("testGetNextInvocation", testGetNextInvocation),
+        ("testPostInvocationResponse", testPostInvocationResponse),
+        ("testPostInvocationError", testPostInvocationError),
+        ("testPostInitializationError", testPostInitializationError),
+    ]
 
-    #if !canImport(ObjectiveC)
-        static var allTests = [
-            ("testInit", testInit),
-        ]
-    #else
-        static var allTests = [
-            ("testInit", testInit),
-            ("testGetNextInvocation", testGetNextInvocation),
-            ("testPostInvocationResponse", testPostInvocationResponse),
-            ("testPostInvocationError", testPostInvocationError),
-            ("testPostInitializationError", testPostInitializationError),
-        ]
-    #endif
 }

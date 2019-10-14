@@ -1,6 +1,6 @@
 os:
   - linux
-language: generic
+language: swift
 sudo: required
 dist: xenial
 
@@ -20,3 +20,6 @@ install:
 script:
   - docker image ls
   - make swift_test_with_coverage
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)

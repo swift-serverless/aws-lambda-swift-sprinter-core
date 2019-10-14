@@ -1,6 +1,6 @@
 os:
   - linux
-language: swift
+language: generic
 sudo: required
 dist: xenial
 

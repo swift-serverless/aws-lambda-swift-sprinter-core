@@ -12,4 +12,4 @@ swift_test_with_coverage:
 			--volume "$(shell pwd)/:/src" \
 			--workdir "/src/" \
 			$(SWIFT_DOCKER_IMAGE) \
-			/bin/bash -c "swift test --enable-code-coverage && ./export-coverage.sh"
+			/bin/bash -c "swift test --enable-code-coverage && ./export-coverage-test.sh"

@@ -32,59 +32,50 @@ class LambdaRuntimeRequestBuilderTests: XCTestCase {
         XCTAssertNotNil(builder)
     }
 
-    #if canImport(ObjectiveC)
-        func testGetNextInvocationRequest() {
-            let request = builder.getNextInvocationRequest()
-            XCTAssertEqual(request.httpMethod, "GET")
-            XCTAssertEqual(request.url, urlBuilder.nextInvocationURL())
-        }
+    func testGetNextInvocationRequest() {
+        let request = builder.getNextInvocationRequest()
+        XCTAssertEqual(request.httpMethod, "GET")
+        XCTAssertEqual(request.url, urlBuilder.nextInvocationURL())
+    }
 
-        func testPostInvocationResponseRequest() {
-            validData = Fixtures.validJSON.data(using: .utf8)
-            XCTAssertNotNil(validData)
+    func testPostInvocationResponseRequest() {
+        validData = Fixtures.validJSON.data(using: .utf8)
+        XCTAssertNotNil(validData)
 
-            let request = builder.postInvocationResponseRequest(requestId: "request-id", body: validData)
-            XCTAssertEqual(request.httpMethod, "POST")
-            XCTAssertEqual(request.url, urlBuilder.invocationResponseURL(requestId: "request-id"))
-            XCTAssertNotNil(request.httpBody)
+        let request = builder.postInvocationResponseRequest(requestId: "request-id", body: validData)
+        XCTAssertEqual(request.httpMethod, "POST")
+        XCTAssertEqual(request.url, urlBuilder.invocationResponseURL(requestId: "request-id"))
+        XCTAssertNotNil(request.httpBody)
 
-            let data: EventMock? = try? request.httpBody?.decode()
-            XCTAssertNotNil(data)
-        }
+        let data: EventMock? = try? request.httpBody?.decode()
+        XCTAssertNotNil(data)
+    }
 
-        func testPostInvocationErrorRequest() {
-            let request = builder.postInvocationErrorRequest(requestId: "request-id", error: SprinterError.invalidJSON)
-            XCTAssertEqual(request.httpMethod, "POST")
-            XCTAssertEqual(request.url, urlBuilder.invocationErrorURL(requestId: "request-id"))
-            XCTAssertNotNil(request.httpBody)
+    func testPostInvocationErrorRequest() {
+        let request = builder.postInvocationErrorRequest(requestId: "request-id", error: SprinterError.invalidJSON)
+        XCTAssertEqual(request.httpMethod, "POST")
+        XCTAssertEqual(request.url, urlBuilder.invocationErrorURL(requestId: "request-id"))
+        XCTAssertNotNil(request.httpBody)
 
-            let data: InvocationError? = try? request.httpBody?.decode()
-            XCTAssertNotNil(data)
-        }
+        let data: InvocationError? = try? request.httpBody?.decode()
+        XCTAssertNotNil(data)
+    }
 
-        func testPostInitializationErrorRequest() {
-            let request = builder.postInitializationErrorRequest(error: SprinterError.invalidJSON)
-            XCTAssertEqual(request.httpMethod, "POST")
-            XCTAssertEqual(request.url, urlBuilder.initializationErrorRequest())
-            XCTAssertNotNil(request.httpBody)
+    func testPostInitializationErrorRequest() {
+        let request = builder.postInitializationErrorRequest(error: SprinterError.invalidJSON)
+        XCTAssertEqual(request.httpMethod, "POST")
+        XCTAssertEqual(request.url, urlBuilder.initializationErrorRequest())
+        XCTAssertNotNil(request.httpBody)
 
-            let data: InvocationError? = try? request.httpBody?.decode()
-            XCTAssertNotNil(data)
-        }
-    #endif
+        let data: InvocationError? = try? request.httpBody?.decode()
+        XCTAssertNotNil(data)
+    }
 
-    #if !canImport(ObjectiveC)
-        static var allTests = [
-            ("testInit", testInit),
-        ]
-    #else
-        static var allTests = [
-            ("testInit", testInit),
-            ("testGetNextInvocationRequest", testGetNextInvocationRequest),
-            ("testPostInvocationResponseRequest", testPostInvocationResponseRequest),
-            ("testPostInvocationErrorRequest", testPostInvocationErrorRequest),
-            ("testPostInitializationErrorRequest", testPostInitializationErrorRequest),
-        ]
-
-    #endif
+    static var allTests = [
+        ("testInit", testInit),
+        ("testGetNextInvocationRequest", testGetNextInvocationRequest),
+        ("testPostInvocationResponseRequest", testPostInvocationResponseRequest),
+        ("testPostInvocationErrorRequest", testPostInvocationErrorRequest),
+        ("testPostInitializationErrorRequest", testPostInitializationErrorRequest),
+    ]
 }

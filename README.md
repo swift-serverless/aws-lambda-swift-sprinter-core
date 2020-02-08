@@ -1,6 +1,6 @@
 # aws-lambda-swift-sprinter-core
 
-[![Swift 5](https://img.shields.io/badge/Swift-5.0-blue.svg)](https://swift.org/download/) [![Swift 5.1.3](https://img.shields.io/badge/Swift-5.1.3-blue.svg)](https://swift.org/download/) ![](https://img.shields.io/badge/version-1.0.0--alpha.3-red) ![](https://travis-ci.com/swift-sprinter/aws-lambda-swift-sprinter-core.svg?branch=master) [![codecov](https://codecov.io/gh/swift-sprinter/aws-lambda-swift-sprinter-core/branch/master/graph/badge.svg)](https://codecov.io/gh/swift-sprinter/aws-lambda-swift-sprinter-core)
+[![Swift 5](https://img.shields.io/badge/Swift-5.0-blue.svg)](https://swift.org/download/) [![Swift 5.1](https://img.shields.io/badge/Swift-5.1-blue.svg)](https://swift.org/download/) ![](https://img.shields.io/badge/version-1.0.0-green) ![](https://travis-ci.com/swift-sprinter/aws-lambda-swift-sprinter-core.svg?branch=master) [![codecov](https://codecov.io/gh/swift-sprinter/aws-lambda-swift-sprinter-core/branch/master/graph/badge.svg)](https://codecov.io/gh/swift-sprinter/aws-lambda-swift-sprinter-core)
 
 **LambdaSwiftSprinter** is a Swift framework allowing the development of AWS Lambdas based on the  [AWS Lambda Custom Runtime](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-custom.html) for Swift.
 
@@ -32,7 +32,7 @@ import PackageDescription
 let package = Package(
     name: "HelloWorld",
     dependencies: [
-       .package(url: "https://github.com/swift-sprinter/aws-lambda-swift-sprinter-core", from: "1.0.0-alpha.3")
+       .package(url: "https://github.com/swift-sprinter/aws-lambda-swift-sprinter-core", from: "1.0.0")
     ],
     targets: [
         .target(

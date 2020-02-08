@@ -1,4 +1,4 @@
-FROM swift:5.1.3
+FROM swift:5.1.4
 
 # Or your actual UID, GID on Linux if not the default 1000
 ARG USERNAME=vscode
